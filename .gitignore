@@ -18,6 +18,7 @@ Thumbs.db
 .claude
 .codex
 .agents
+.worktrees/
 
 Local
 .*.local

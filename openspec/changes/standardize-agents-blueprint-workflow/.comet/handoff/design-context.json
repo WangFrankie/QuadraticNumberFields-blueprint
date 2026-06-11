@@ -1,0 +1,14 @@
+{
+  "change": "standardize-agents-blueprint-workflow",
+  "phase": "design",
+  "mode": "compact",
+  "canonical_spec": "openspec",
+  "generated_by": "comet-handoff.sh",
+  "context_hash": "13035fffb964dfa937cea214d8ddd231bd3feb8c1c078c57e721a3344ebd8bde",
+  "files": [
+    { "path": "openspec/changes/standardize-agents-blueprint-workflow/proposal.md", "sha256": "543fb000b17f7e916a27bf2cd85e2771089adf3c415501efe34178860911e223" },
+    { "path": "openspec/changes/standardize-agents-blueprint-workflow/design.md", "sha256": "5a335c794129e457edbc957b999b5cfb26463036e38440b00dd8afb14a7898d5" },
+    { "path": "openspec/changes/standardize-agents-blueprint-workflow/tasks.md", "sha256": "af5b59813b4e7f665a476d07764c7681ba4367fa2a5cf54de6140089f9552592" },
+    { "path": "openspec/changes/standardize-agents-blueprint-workflow/specs/agents-blueprint-workflow/spec.md", "sha256": "f76cb6040e2ed649f9aee0c9daa92cf4cd63d4a132e576aad30ca17d60583688" }
+  ]
+}
