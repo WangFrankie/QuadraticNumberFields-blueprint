@@ -113,3 +113,23 @@ $`\mathbb{Z}`, and the same restriction holds for arbitrary
 {uses "roi_classification"}[ring-of-integers] elements — the input needed
 for {uses "minkowski_representatives"}[bounded-norm class representatives].
 :::
+
+:::theorem "mod_four_branch_split_api" (parent := "ring_of_integers_core") (lean := "QuadraticNumberFields.RingOfIntegers.exists_k_of_mod_four_eq_one, QuadraticNumberFields.RingOfIntegers.mod_four_eq_one_of_exists_k, QuadraticNumberFields.RingOfIntegers.mod_four_branch_split") (tags := "complete, project-only")
+The mod-$`4` branch-split API
+(`RingOfIntegers.exists_k_of_mod_four_eq_one`,
+`RingOfIntegers.mod_four_eq_one_of_exists_k`,
+`RingOfIntegers.mod_four_branch_split`). The parameter $`d \equiv 1 \pmod 4`
+is rewritten as $`d = 1 + 4k` for some integer $`k`, and the dichotomy
+$`d \equiv 1 \pmod 4` versus $`d \not\equiv 1 \pmod 4` is exposed as a
+disjunction. This is the lightweight switch fed into
+{uses "roi_classification"}[the ring-of-integers branch dichotomy] and the
+{uses "discr_formula"}[discriminant formula].
+:::
+
+:::definition "ring_of_integers_is_quadratic_extension_instance" (parent := "ring_of_integers_core") (lean := "QuadraticField.ringOfIntegers_isQuadraticExtension") (tags := "complete, project-only")
+The abstract ring of integers as a quadratic extension instance
+(`QuadraticField.ringOfIntegers_isQuadraticExtension`). The ring of integers
+of an {uses "abstract_quadratic_field"}[abstract quadratic field] carries an
+`Algebra.IsQuadraticExtension` instance over $`\mathbb{Z}`, exposing the
+ring-of-integers side of the quadratic property to typeclass search.
+:::

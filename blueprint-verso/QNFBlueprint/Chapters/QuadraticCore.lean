@@ -60,6 +60,20 @@ $`2 \operatorname{re}(x)`, and the norm homomorphisms are the bridge from
 coordinate calculations to ring-of-integers and unit arguments.
 :::
 
+:::theorem "trace_norm_integrality_in_qsqrtd" (parent := "standard_model_qsqrtd") (lean := "QuadraticNumberFields.RingOfIntegers.TraceNorm.add_star_eq_trace_image, QuadraticNumberFields.RingOfIntegers.TraceNorm.norm_image_eq_mul_star, QuadraticNumberFields.RingOfIntegers.TraceNorm.norm_eq_sqr_minus_d_sqr, QuadraticNumberFields.RingOfIntegers.TraceNorm.exists_int_trace, QuadraticNumberFields.RingOfIntegers.TraceNorm.exists_int_norm, QuadraticNumberFields.RingOfIntegers.TraceNorm.re_eq_half_trace_int, QuadraticNumberFields.RingOfIntegers.TraceNorm.isIntegral_of_sq_int") (tags := "complete, project-only")
+Trace and norm of integral elements in $`\mathbb{Q}(\sqrt d)`
+(`RingOfIntegers.TraceNorm.add_star_eq_trace_image`,
+`norm_image_eq_mul_star`, `norm_eq_sqr_minus_d_sqr`, `exists_int_trace`,
+`exists_int_norm`, `re_eq_half_trace_int`). The coordinate trace identifies
+with $`x + \bar x` and the norm with $`x \bar x`; on integral elements both
+land in $`\mathbb{Z}`, the real coordinate is the half-trace, and an
+integer-square coordinate forces integrality. This is the integrality
+scaffolding consumed by
+{uses "integrality_normal_forms"}[the half-integer normal-form proof] and by
+{uses "trace_norm_via_conjugation"}[the abstract trace-norm-via-conjugation
+identities].
+:::
+
 :::definition "rational_square_rescaling" (parent := "standard_model_qsqrtd") (lean := "Qsqrtd.rescale, Qsqrtd.rescaleOfNeZero") (tags := "complete, mathlib-candidate")
 Rational-square rescaling of quadratic fields (`Qsqrtd.rescale`). Multiplying
 the parameter by a rational square does not change the quadratic field:
