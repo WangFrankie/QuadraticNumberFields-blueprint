@@ -1,0 +1,102 @@
+name: Blueprint
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      update_upstream:
+        description: "Update QuadraticNumberFields from its main branch before rendering"
+        required: false
+        type: boolean
+        default: false
+      skip_render:
+        description: "Reuse the committed blueprint-verso/_out/site output"
+        required: false
+        type: boolean
+        default: false
+      commit_out:
+        description: "Commit updated lake-manifest.json and blueprint-verso/_out after rendering"
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: blueprint-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: Build and deploy blueprint
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: blueprint-verso
+          auto-config: false
+          build: false
+          lint: false
+          test: false
+
+      - name: Update upstream dependency
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.update_upstream }}
+        working-directory: blueprint-verso
+        run: lake update QuadraticNumberFields
+
+      - name: Restore mathlib cache
+        working-directory: blueprint-verso
+        run: lake exe cache get
+
+      - name: Render blueprint
+        working-directory: blueprint-verso
+        env:
+          SKIP_RENDER: ${{ github.event_name == 'workflow_dispatch' && inputs.skip_render && '1' || '' }}
+        run: ./scripts/ci-pages.sh
+
+      - name: Check rendered output
+        run: |
+          test -f blueprint-verso/_out/site/html-multi/index.html
+          test -f blueprint-verso/_out/site/html-multi/-verso-data/blueprint-manifest.json
+          test -f blueprint-verso/_out/site/html-multi/-verso-data/blueprint-html-cache.json
+
+      - name: Commit rendered output
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.commit_out }}
+        run: |
+          set -euo pipefail
+          git add blueprint-verso/lake-manifest.json blueprint-verso/_out
+          if git diff --cached --quiet; then
+            echo "No rendered changes to commit."
+            exit 0
+          fi
+          upstream_commit=$(git -C blueprint-verso/.lake/packages/QuadraticNumberFields rev-parse --short HEAD)
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -m "render: QuadraticNumberFields@${upstream_commit}"
+          git push
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: blueprint-verso/_out/site/html-multi
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
