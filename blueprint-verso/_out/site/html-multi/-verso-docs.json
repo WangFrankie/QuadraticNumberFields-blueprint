@@ -65,72 +65,87 @@
  "<code>SqfreeParam : Type</code><span class=\"sep\"></span><code class=\"docstring\">A normalized squarefree parameter: a squarefree integer `d ≠ 1`.\n\nThese index the standard quadratic-field models `ℚ(√d)`. </code>",
  "65":
  "<code>self.d ≠ 1</code><span class=\"sep\"></span><code class=\"docstring\">The integer is not `1` (so that `ℚ(√d)` is a genuine field, not `ℚ × ℚ`). </code>",
+ "647":
+ "<code>Zsqrtd.instIsDomain {d : ℤ} [Fact (d &lt; 0)] : IsDomain (ℤ√d)</code>",
+ "646":
+ "<code>NoZeroDivisors.{u_2} (M₀ : Type u_2) [Mul M₀] [Zero M₀] : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Predicate typeclass for expressing that `a * b = 0` implies `a = 0` or `b = 0`\nfor all `a` and `b` of type `M₀`. It is weaker than `IsCancelMulZero` in general,\nbut equivalent to it if `M₀` is a (not necessarily unital or associative) ring. </code>",
+ "645":
+ "<code>Zsqrtd.instNoZeroDivisors {d : ℤ} [Fact (d &lt; 0)] : NoZeroDivisors (ℤ√d)</code>",
+ "644":
+ "<code>Zsqrtd.instIsDedekindDomain_zsqrtd_of_mod_four_ne_one (d : ℤ) [Fact (Squarefree d)] [Fact (d ≠ 1)] [Fact (d % 4 ≠ 1)] :\n  IsDedekindDomain (ℤ√d)</code>",
+ "643":
+ "<code>Zsqrtd.isDedekindDomain_iff_mod_four_ne_one (d : ℤ) [Fact (Squarefree d)] [Fact (d ≠ 1)] :\n  IsDedekindDomain (ℤ√d) ↔ d % 4 ≠ 1</code><span class=\"sep\"></span><code class=\"docstring\">For a squarefree `d ≠ 1`, mathlib's `ℤ√d` is Dedekind exactly in\nthe `d % 4 ≠ 1` branch. </code>",
+ "642":
+ "<code>Zsqrtd.not_isDedekindDomain_of_mod_four_eq_one (d : ℤ) [Fact (Squarefree d)] [Fact (d ≠ 1)] (hd4 : d % 4 = 1) :\n  ¬IsDedekindDomain (ℤ√d)</code>",
+ "641":
+ "<code>Zsqrtd.isDedekindDomain_of_mod_four_ne_one (d : ℤ) [Fact (Squarefree d)] [Fact (d ≠ 1)] (hd4 : d % 4 ≠ 1) :\n  IsDedekindDomain (ℤ√d)</code>",
+ "640":
+ "<code>QuadraticNumberFields.Zsqrtd.ofMathlib_toMathlib (d : ℤ) (z : QuadraticNumberFields.Zsqrtd d) :\n  (QuadraticNumberFields.Zsqrtd.ofMathlib d) ((QuadraticNumberFields.Zsqrtd.toMathlib d) z) = z</code>",
  "64":
  "<code>SqfreeParam.d (self : SqfreeParam) : ℤ</code><span class=\"sep\"></span><code class=\"docstring\">The underlying integer. </code>",
- "638":
- "<code>Zsqrtd.instIsDomain {d : ℤ} [Fact (d &lt; 0)] : IsDomain (ℤ√d)</code>",
- "637":
- "<code>NoZeroDivisors.{u_2} (M₀ : Type u_2) [Mul M₀] [Zero M₀] : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Predicate typeclass for expressing that `a * b = 0` implies `a = 0` or `b = 0`\nfor all `a` and `b` of type `M₀`. It is weaker than `IsCancelMulZero` in general,\nbut equivalent to it if `M₀` is a (not necessarily unital or associative) ring. </code>",
- "636":
- "<code>Zsqrtd.instNoZeroDivisors {d : ℤ} [Fact (d &lt; 0)] : NoZeroDivisors (ℤ√d)</code>",
- "635":
- "<code>Zsqrtd.instIsDedekindDomain_zsqrtd_of_mod_four_ne_one (d : ℤ) [Fact (Squarefree d)] [Fact (d ≠ 1)] [Fact (d % 4 ≠ 1)] :\n  IsDedekindDomain (ℤ√d)</code>",
- "634":
- "<code>Zsqrtd.isDedekindDomain_iff_mod_four_ne_one (d : ℤ) [Fact (Squarefree d)] [Fact (d ≠ 1)] :\n  IsDedekindDomain (ℤ√d) ↔ d % 4 ≠ 1</code><span class=\"sep\"></span><code class=\"docstring\">For a squarefree `d ≠ 1`, mathlib's `ℤ√d` is Dedekind exactly in\nthe `d % 4 ≠ 1` branch. </code>",
- "633":
- "<code>Zsqrtd.not_isDedekindDomain_of_mod_four_eq_one (d : ℤ) [Fact (Squarefree d)] [Fact (d ≠ 1)] (hd4 : d % 4 = 1) :\n  ¬IsDedekindDomain (ℤ√d)</code>",
- "632":
- "<code>Zsqrtd.isDedekindDomain_of_mod_four_ne_one (d : ℤ) [Fact (Squarefree d)] [Fact (d ≠ 1)] (hd4 : d % 4 ≠ 1) :\n  IsDedekindDomain (ℤ√d)</code>",
- "631":
- "<code>QuadraticNumberFields.Zsqrtd.ofMathlib_toMathlib (d : ℤ) (z : QuadraticNumberFields.Zsqrtd d) :\n  (QuadraticNumberFields.Zsqrtd.ofMathlib d) ((QuadraticNumberFields.Zsqrtd.toMathlib d) z) = z</code>",
- "630":
+ "639":
  "<code>QuadraticNumberFields.Zsqrtd.toMathlib_ofMathlib (d : ℤ) (z : ℤ√d) :\n  (QuadraticNumberFields.Zsqrtd.toMathlib d) ((QuadraticNumberFields.Zsqrtd.ofMathlib d) z) = z</code>",
- "63": "<code>SqfreeParam</code>",
- "629":
+ "638":
  "<code>QuadraticNumberFields.Zsqrtd.equivMathlib (d : ℤ) : QuadraticNumberFields.Zsqrtd d ≃+* ℤ√d</code><span class=\"sep\"></span><code class=\"docstring\">Ring isomorphism between QA `Zsqrtd` and mathlib's `ℤ√d`. </code>",
- "628":
+ "637":
  "<code>QuadraticNumberFields.Zsqrtd.ofMathlib (d : ℤ) : ℤ√d →+* QuadraticNumberFields.Zsqrtd d</code><span class=\"sep\"></span><code class=\"docstring\">Coordinate map from mathlib's `ℤ√d` to QA `Zsqrtd`. </code>",
- "627":
+ "636":
  "<code>QuadraticNumberFields.Zsqrtd.toMathlib (d : ℤ) : QuadraticNumberFields.Zsqrtd d →+* ℤ√d</code><span class=\"sep\"></span><code class=\"docstring\">Coordinate map from QA `Zsqrtd` to mathlib's `ℤ√d`. </code>",
- "626":
+ "635":
  "<code>Zsqrtd.mul_re_sub_im_eq {d : ℤ} (a b : ℤ√d) :\n  (a * b).re - (a * b).im = (a.re - a.im) * (b.re - b.im) + (d - 1) * a.im * b.im</code><span class=\"sep\"></span><code class=\"docstring\">The fundamental identity for `re - im` of a product in mathlib's `ℤ√d`. </code>",
- "625":
+ "634":
  "<code>Zsqrtd.im {d : ℤ} (self : ℤ√d) : ℤ</code><span class=\"sep\"></span><code class=\"docstring\">Component of the integer multiplied by `√d` </code>",
- "624":
+ "633":
  "<code>Zsqrtd.re {d : ℤ} (self : ℤ√d) : ℤ</code><span class=\"sep\"></span><code class=\"docstring\">Component of the integer not multiplied by `√d` </code>",
- "623":
+ "632":
  "<code>Zsqrtd (d : ℤ) : Type</code><span class=\"sep\"></span><code class=\"docstring\">The ring of integers adjoined with a square root of `d`.\nThese have the form `a + b √d` where `a b : ℤ`. The components\nare called `re` and `im` by analogy to the negative `d` case. </code>",
- "622": "<code>ℤ√d</code>",
- "621":
+ "631": "<code>ℤ√d</code>",
+ "630":
  "<code>Zsqrtd.mul_re_add_im_eq {d : ℤ} (a b : ℤ√d) :\n  (a * b).re + (a * b).im = (a.re + a.im) * (b.re + b.im) + (d - 1) * a.im * b.im</code><span class=\"sep\"></span><code class=\"docstring\">The fundamental identity for `re + im` of a product in mathlib's `ℤ√d`. </code>",
- "620": "<code>∀ x ∈ S, a ∣ x</code>",
+ "63": "<code>SqfreeParam</code>",
+ "629": "<code>∀ x ∈ S, a ∣ x</code>",
+ "628":
+ "<code>Ideal.span_le_span_singleton_of_forall_dvd.{u_1} {α : Type u_1} [CommSemiring α] {a : α} {S : Set α}\n  (h : ∀ x ∈ S, a ∣ x) : Ideal.span S ≤ Ideal.span {a}</code><span class=\"sep\"></span><code class=\"docstring\">If `a` divides every element of `S`, then `Ideal.span S ≤ Ideal.span {a}`. </code>",
+ "627":
+ "<code>Set.{u} (α : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A set is a collection of elements of some type `α`.\n\nAlthough `Set` is defined as `α → Prop`, this is an implementation detail which should not be\nrelied on. Instead, `setOf` and membership of a set (`∈`) should be used to convert between sets\nand predicates.\n</code>",
+ "626": "<code>Set α</code>",
+ "625": "<code>α</code>",
+ "624":
+ "<code>Ideal.span_le_span_singleton_iff_forall_dvd.{u_1} {α : Type u_1} [CommSemiring α] {a : α} {S : Set α} :\n  Ideal.span S ≤ Ideal.span {a} ↔ ∀ x ∈ S, a ∣ x</code><span class=\"sep\"></span><code class=\"docstring\">A span is contained in a principal span iff each generator is divisible by\nthe principal generator. </code>",
+ "623":
+ "<code>dvd_four_sub_sq_iff_same_parity_of_one_mod_four (d a' b' : ℤ) (hd : Squarefree d) (hd4 : d % 4 = 1) :\n  4 ∣ a' ^ 2 - d * b' ^ 2 ↔ a' % 2 = b' % 2</code><span class=\"sep\"></span><code class=\"docstring\">If `d % 4 = 1`, divisibility by `4` is equivalent to same parity. </code>",
+ "622":
+ "<code>dvd_four_sub_sq_iff_even_even_of_ne_one_mod_four (d a' b' : ℤ) (hd : Squarefree d) (hd4 : d % 4 ≠ 1) :\n  4 ∣ a' ^ 2 - d * b' ^ 2 ↔ 2 ∣ a' ∧ 2 ∣ b'</code><span class=\"sep\"></span><code class=\"docstring\">If `d % 4 ≠ 1`, divisibility by `4` is equivalent to both numerators even. </code>",
+ "621": "<code>4 ∣ a' ^ 2 - d * b' ^ 2</code>",
+ "620":
+ "<code>even_even_of_dvd_four_sub_sq_of_ne_one_mod_four (d a' b' : ℤ) (hd : Squarefree d) (hd4 : d % 4 ≠ 1)\n  (h : 4 ∣ a' ^ 2 - d * b' ^ 2) : 2 ∣ a' ∧ 2 ∣ b'</code><span class=\"sep\"></span><code class=\"docstring\">If `d % 4 ≠ 1`, divisibility by `4` forces both numerators even. </code>",
  "62":
  "<code>Squarefree self.d</code><span class=\"sep\"></span><code class=\"docstring\">The integer is squarefree. </code>",
  "619":
- "<code>Ideal.span_le_span_singleton_of_forall_dvd.{u_1} {α : Type u_1} [CommSemiring α] {a : α} {S : Set α}\n  (h : ∀ x ∈ S, a ∣ x) : Ideal.span S ≤ Ideal.span {a}</code><span class=\"sep\"></span><code class=\"docstring\">If `a` divides every element of `S`, then `Ideal.span S ≤ Ideal.span {a}`. </code>",
- "618":
- "<code>Set.{u} (α : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A set is a collection of elements of some type `α`.\n\nAlthough `Set` is defined as `α → Prop`, this is an implementation detail which should not be\nrelied on. Instead, `setOf` and membership of a set (`∈`) should be used to convert between sets\nand predicates.\n</code>",
- "617": "<code>Set α</code>",
- "616": "<code>α</code>",
- "615":
- "<code>Ideal.span_le_span_singleton_iff_forall_dvd.{u_1} {α : Type u_1} [CommSemiring α] {a : α} {S : Set α} :\n  Ideal.span S ≤ Ideal.span {a} ↔ ∀ x ∈ S, a ∣ x</code><span class=\"sep\"></span><code class=\"docstring\">A span is contained in a principal span iff each generator is divisible by\nthe principal generator. </code>",
- "614":
- "<code>dvd_four_sub_sq_iff_same_parity_of_one_mod_four (d a' b' : ℤ) (hd : Squarefree d) (hd4 : d % 4 = 1) :\n  4 ∣ a' ^ 2 - d * b' ^ 2 ↔ a' % 2 = b' % 2</code><span class=\"sep\"></span><code class=\"docstring\">If `d % 4 = 1`, divisibility by `4` is equivalent to same parity. </code>",
- "613":
- "<code>dvd_four_sub_sq_iff_even_even_of_ne_one_mod_four (d a' b' : ℤ) (hd : Squarefree d) (hd4 : d % 4 ≠ 1) :\n  4 ∣ a' ^ 2 - d * b' ^ 2 ↔ 2 ∣ a' ∧ 2 ∣ b'</code><span class=\"sep\"></span><code class=\"docstring\">If `d % 4 ≠ 1`, divisibility by `4` is equivalent to both numerators even. </code>",
- "612": "<code>4 ∣ a' ^ 2 - d * b' ^ 2</code>",
- "611":
- "<code>even_even_of_dvd_four_sub_sq_of_ne_one_mod_four (d a' b' : ℤ) (hd : Squarefree d) (hd4 : d % 4 ≠ 1)\n  (h : 4 ∣ a' ^ 2 - d * b' ^ 2) : 2 ∣ a' ∧ 2 ∣ b'</code><span class=\"sep\"></span><code class=\"docstring\">If `d % 4 ≠ 1`, divisibility by `4` forces both numerators even. </code>",
- "610":
  "<code>dvd_four_sub_sq_iff_even_even_or_odd_odd_mod_four_one (d a' b' : ℤ) (hd : Squarefree d) :\n  4 ∣ a' ^ 2 - d * b' ^ 2 ↔ 2 ∣ a' ∧ 2 ∣ b' ∨ ¬2 ∣ a' ∧ ¬2 ∣ b' ∧ d % 4 = 1</code><span class=\"sep\"></span><code class=\"docstring\">Main mod-4 criterion for the binary quadratic form `a'² − d·b'²`. </code>",
+ "618": "<code>¬2 ∣ n</code>",
+ "617":
+ "<code>Int.sq_emod_four_of_odd (n : ℤ) (h : ¬2 ∣ n) : n ^ 2 % 4 = 1</code><span class=\"sep\"></span><code class=\"docstring\">The square of an odd integer is `1 mod 4`. </code>",
+ "616": "<code>2 ∣ n</code>",
+ "615":
+ "<code>Int.sq_emod_four_of_even (n : ℤ) (h : 2 ∣ n) : n ^ 2 % 4 = 0</code><span class=\"sep\"></span><code class=\"docstring\">The square of an even integer is `0 mod 4`. </code>",
+ "614":
+ "<code>RingEquiv.isDedekindDomain_iff.{u_1, u_2} {R : Type u_1} {S : Type u_2} [CommRing R] [CommRing S] (e : R ≃+* S) :\n  IsDedekindDomain R ↔ IsDedekindDomain S</code><span class=\"sep\"></span><code class=\"docstring\">`IsDedekindDomain` is invariant under ring equivalence. </code>",
+ "613":
+ "<code>RingEquiv.isDedekindDomain.{u_1, u_2} {R : Type u_1} {S : Type u_2} [CommRing R] [CommRing S] (e : R ≃+* S)\n  [IsDedekindDomain R] : IsDedekindDomain S</code><span class=\"sep\"></span><code class=\"docstring\">Transport `IsDedekindDomain` across a ring equivalence.\n\nA Dedekind domain is characterized by: (1) Noetherian, (2) domain,\n(3) integrally closed, (4) dimension ≤ 1. Each of these is individually\ninvariant under ring isomorphism, so the conjunction is as well. </code>",
+ "612": "<code>IsSquare d</code>",
+ "611":
+ "<code>eq_one_of_squarefree_isSquare {d : ℤ} (hd : Squarefree d) (hsq : IsSquare d) : d = 1 ∨ d = -1</code><span class=\"sep\"></span><code class=\"docstring\">A squarefree integer that is a perfect square must equal `1` or `-1`. </code>",
+ "610":
+ "<code>squarefree_int_emod_four (d : ℤ) (hd : Squarefree d) : d % 4 = 1 ∨ d % 4 = 2 ∨ d % 4 = 3</code><span class=\"sep\"></span><code class=\"docstring\">A squarefree integer has remainder `1`, `2`, or `3` modulo `4`. </code>",
  "61":
  "<code>ℤ</code><span class=\"sep\"></span><code class=\"docstring\">The underlying integer. </code>",
- "609": "<code>¬2 ∣ n</code>",
- "608":
- "<code>Int.sq_emod_four_of_odd (n : ℤ) (h : ¬2 ∣ n) : n ^ 2 % 4 = 1</code><span class=\"sep\"></span><code class=\"docstring\">The square of an odd integer is `1 mod 4`. </code>",
- "607": "<code>2 ∣ n</code>",
+ "609":
+ "<code>squarefree_int_not_dvd_four (d : ℤ) (hd : Squarefree d) : ¬4 ∣ d</code><span class=\"sep\"></span><code class=\"docstring\">A squarefree integer is not divisible by `4`. </code>",
+ "608": "<code>¬IsUnit p</code>",
+ "607": "<code>Squarefree r</code>",
  "606":
- "<code>Int.sq_emod_four_of_even (n : ℤ) (h : 2 ∣ n) : n ^ 2 % 4 = 0</code><span class=\"sep\"></span><code class=\"docstring\">The square of an even integer is `0 mod 4`. </code>",
+ "<code>Squarefree.not_mul_self_dvd_of_not_isUnit.{u_1} {R : Type u_1} [Monoid R] {r p : R} (hr : Squarefree r)\n  (hp : ¬IsUnit p) : ¬p * p ∣ r</code><span class=\"sep\"></span><code class=\"docstring\">If `r` is squarefree and `p` is not a unit, then `p * p` does not divide `r`. </code>",
  "605": "<code>IsSquare (↑d₁ / ↑d₂)</code>",
  "604": "<code>d₂ ≠ 0</code>",
  "603":

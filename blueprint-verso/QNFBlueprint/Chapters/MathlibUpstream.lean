@@ -127,6 +127,27 @@ field-entry hypothesis] and {uses "parameter_uniqueness"}[the squarefree
 parameter rigidity].
 :::
 
+:::theorem "squarefree_integer_arithmetic_shims" (parent := "mathlib_upstream_core") (lean := "Squarefree.not_mul_self_dvd_of_not_isUnit, squarefree_int_not_dvd_four, squarefree_int_emod_four, eq_one_of_squarefree_isSquare") (tags := "complete, mathlib-candidate")
+Integer-squarefree arithmetic shims
+(`Squarefree.not_mul_self_dvd_of_not_isUnit`, `squarefree_int_not_dvd_four`,
+`squarefree_int_emod_four`, `eq_one_of_squarefree_isSquare`). The
+{uses "local_mathlib_shims"}[shim layer] records that no squarefree element
+is divisible by a non-unit square, that a squarefree integer is never
+divisible by $`4`, that its residue mod $`4` lies in $`\{1, 2, 3\}`, and
+that a squarefree integer that is a square must be $`\pm 1`. These power
+{uses "mod_four_squares_shims"}[the mod-$`4` half-integer arguments] and the
+nontrivial branch of {uses "qsqrtd_not_square_field_condition"}[the
+nonsquare field-entry gate].
+:::
+
+:::theorem "dedekind_basic_transport_shims" (parent := "mathlib_upstream_core") (lean := "RingEquiv.isDedekindDomain, RingEquiv.isDedekindDomain_iff") (tags := "complete, mathlib-candidate")
+Generic Dedekind-domain transport shims (`RingEquiv.isDedekindDomain`,
+`RingEquiv.isDedekindDomain_iff`). Beside the
+{uses "dedekind_transport_shim"}[ring-of-integers transport instance] used
+elsewhere, the underlying generic transport is exposed as a one-way and
+two-way version, available as upstream candidates.
+:::
+
 :::theorem "mod_four_squares_shims" (parent := "mathlib_upstream_core") (lean := "Int.sq_emod_four_of_even, Int.sq_emod_four_of_odd, dvd_four_sub_sq_iff_even_even_or_odd_odd_mod_four_one, even_even_of_dvd_four_sub_sq_of_ne_one_mod_four, dvd_four_sub_sq_iff_even_even_of_ne_one_mod_four, dvd_four_sub_sq_iff_same_parity_of_one_mod_four") (tags := "complete, mathlib-candidate")
 Integer-square mod-$`4` shims (`Int.sq_emod_four_of_even`,
 `Int.sq_emod_four_of_odd`, `dvd_four_sub_sq_iff_same_parity_of_one_mod_four`).
