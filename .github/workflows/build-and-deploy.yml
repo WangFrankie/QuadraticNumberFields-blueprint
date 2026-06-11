@@ -1,0 +1,86 @@
+name: Build and deploy blueprint
+
+# Triggered two ways:
+#   1. push to main           (the "webhook" — any push fires a rebuild)
+#   2. workflow_dispatch      (manual rebuild from the Actions tab)
+#
+# On every run, the workflow:
+#   1. Clones WangFrankie/QuadraticNumberFields at its `blueprint-verso` branch.
+#   2. Runs `blueprint-verso/scripts/ci-pages.sh` to render the static site.
+#   3. Replaces this repo's content (except .github, README.md, .gitignore)
+#      with the rendered site and commits + pushes.
+#
+# Self-loop guard: pushes made by `github-actions[bot]` (i.e. this workflow's
+# own commits) do NOT re-trigger a build. Manual dispatches and external
+# pushes still do.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: build-deploy-blueprint
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: >-
+      github.event_name == 'workflow_dispatch'
+      || (github.event_name == 'push' && github.actor != 'github-actions[bot]')
+    name: Render from source and push
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Setup Lean
+        uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          lint: false
+          test: false
+
+      - name: Clone source repo (blueprint-verso branch)
+        run: |
+          git clone --depth 1 --branch blueprint-verso \
+            https://github.com/WangFrankie/QuadraticNumberFields.git source
+          git -C source log -1 --format='source commit: %H'
+
+      - name: Render blueprint
+        working-directory: source/blueprint-verso
+        run: ./scripts/ci-pages.sh
+
+      - name: Publish rendered site to this repo
+        run: |
+          set -euo pipefail
+
+          SITE=source/blueprint-verso/_out/site/html-multi
+          test -f "$SITE/index.html" || { echo "render failed: $SITE/index.html missing"; exit 1; }
+          test -f "$SITE/-verso-data/blueprint-manifest.json" || { echo "render failed: manifest missing"; exit 1; }
+
+          # Drop every tracked file except the control files we want to
+          # keep (.github/, README.md, .gitignore). Untracked files
+          # (notably the `source/` clone, which is .gitignored) are
+          # left alone by `git rm`.
+          git rm -rfq -- . ':(exclude).github' ':(exclude).git' ':(exclude)README.md' ':(exclude).gitignore'
+
+          # Copy the rendered site to the repo root.
+          cp -r "$SITE/." .
+
+          git add -A
+
+      - name: Commit and push
+        run: |
+          if git diff --cached --quiet; then
+            echo "no changes; nothing to commit"
+            exit 0
+          fi
+          source_commit=$(git -C source rev-parse --short HEAD)
+          published_at=$(date -u +%FT%TZ)
+          git -c user.name="blueprint-bot" \
+              -c user.email="blueprint-bot@users.noreply.github.com" \
+              commit -m "render: QuadraticNumberFields@${source_commit} at ${published_at}"
+          git push

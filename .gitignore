@@ -1,0 +1,28 @@
+# Lean / Lake build artifacts
+.lake/
+*.olean
+*.ilean
+*.hash
+
+# Local build output (only the workflow touches _out/, and only as a
+# transient scratch dir that gets `git rm`-ed before each commit).
+_out/
+
+# The cloned source repo (downloaded by the workflow as a working
+# area; never committed).
+source/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+#AI
+.omc
+.omx
+.claude
+.codex
+.agents
