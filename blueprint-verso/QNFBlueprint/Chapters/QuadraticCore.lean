@@ -211,3 +211,23 @@ The Galois group of a quadratic field as $`\mathbb{Z}/2\mathbb{Z}`. The
 completed equivalences identify the two automorphisms of an abstract quadratic
 field, and of the standard model, with `ZMod 2`.
 :::
+
+:::theorem "quadratic_transport_api" (parent := "quadratic_core") (lean := "QuadraticField.isQuadraticExtension_of_algEquiv, QuadraticField.transportAlong, QuadraticField.transportBack") (tags := "complete, project-only")
+Transport of the quadratic-field property along algebra equivalences
+(`QuadraticField.isQuadraticExtension_of_algEquiv`,
+`QuadraticField.transportAlong`, `QuadraticField.transportBack`). Given an
+algebra equivalence $`K \simeq L` over $`\mathbb{Q}`, the
+{uses "abstract_quadratic_field"}[`QuadraticField`] instance transports in
+both directions. This is the transport layer that lets the project work in
+{uses "standard_model_qsqrtd"}[a standard coordinate model] and then return
+to the abstract field.
+:::
+
+:::theorem "quadratic_aut_pair_and_trace_norm_via_conj" (parent := "quadratic_conjugation") (lean := "QuadraticField.univ_aut_eq_pair, Qsqrtd.starAlgEquiv, Qsqrtd.starAlgEquiv_apply, Qsqrtd.starAlgEquiv_symm_apply") (tags := "complete, project-only")
+Conjugate-pair automorphism finset and the standard star equivalence
+(`QuadraticField.univ_aut_eq_pair`, `Qsqrtd.starAlgEquiv`). The universal
+automorphism finset is the pair `{1, conj}`, while the explicit star algebra
+equivalence on {uses "standard_model_qsqrtd"}[$`\mathbb{Q}(\sqrt d)`]
+realizes {uses "quadratic_conjugation"}[the abstract conjugation] in
+coordinates.
+:::

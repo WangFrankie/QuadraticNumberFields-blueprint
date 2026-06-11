@@ -151,3 +151,26 @@ project bridge from
 {uses "project_owned_zsqrtd_boundary"}[the project's `Zsqrtd`] to mathlib's
 `Zsqrtd`, available as upstream candidates.
 :::
+
+:::theorem "zsqrtd_mathlib_bridge" (parent := "mathlib_upstream_core") (lean := "QuadraticNumberFields.Zsqrtd.toMathlib, QuadraticNumberFields.Zsqrtd.ofMathlib, QuadraticNumberFields.Zsqrtd.equivMathlib, QuadraticNumberFields.Zsqrtd.toMathlib_ofMathlib, QuadraticNumberFields.Zsqrtd.ofMathlib_toMathlib") (tags := "complete, project-only")
+The bridge between the project $`\mathbb{Z}[\sqrt d]` and mathlib's
+$`\mathbb{Z}\sqrt d` (`Zsqrtd.toMathlib`, `Zsqrtd.ofMathlib`,
+`Zsqrtd.equivMathlib`). The dedicated bridge file is the only point of contact
+between {uses "project_owned_zsqrtd_boundary"}[the project order] and mathlib's
+order, packaged as a ring isomorphism with mutually inverse coordinate
+maps. Importing the bridge is required only when an interface with mathlib's
+`Zsqrtd` API is needed.
+:::
+
+:::theorem "zsqrtd_dedekind_dichotomy" (parent := "mathlib_upstream_core") (lean := "Zsqrtd.isDedekindDomain_of_mod_four_ne_one, Zsqrtd.not_isDedekindDomain_of_mod_four_eq_one, Zsqrtd.isDedekindDomain_iff_mod_four_ne_one, Zsqrtd.instIsDedekindDomain_zsqrtd_of_mod_four_ne_one, Zsqrtd.instNoZeroDivisors, Zsqrtd.instIsDomain") (tags := "complete, project-only")
+Dedekind dichotomy and ring instances for mathlib's $`\mathbb{Z}\sqrt d`
+(`Zsqrtd.isDedekindDomain_of_mod_four_ne_one`,
+`Zsqrtd.not_isDedekindDomain_of_mod_four_eq_one`,
+`Zsqrtd.instIsDedekindDomain_zsqrtd_of_mod_four_ne_one`). The mathlib-instance
+layer strengthens
+{uses "dedekind_domain_project_zsqrtd"}[the project Dedekind iff statement] on
+the mathlib side: the explicit positive instance, the explicit negative
+direction for $`d \equiv 1 \pmod 4`, and the underlying
+`NoZeroDivisors`/`IsDomain` instances in the imaginary case all live there,
+exposed through {uses "zsqrtd_mathlib_bridge"}[the project-mathlib bridge].
+:::

@@ -30,6 +30,17 @@ transports total reality or total complexity back across the algebra
 equivalence.
 :::
 
+:::theorem "totally_real_complex_transport" (parent := "infinite_places_examples_core") (lean := "NumberField.IsTotallyReal.ofAlgEquiv, NumberField.isTotallyReal_iff_ofAlgEquiv, NumberField.IsTotallyComplex.ofAlgEquiv, NumberField.isTotallyComplex_iff_ofAlgEquiv") (tags := "complete, mathlib-candidate")
+Transport of total reality and total complexity along algebra equivalences
+(`NumberField.IsTotallyReal.ofAlgEquiv`,
+`NumberField.isTotallyComplex_iff_ofAlgEquiv`). The infinite-place properties
+pass through any algebra equivalence as a biconditional. This is the
+underlying transport step behind
+{uses "abstract_infinite_place_classification"}[the abstract infinite-place
+classification], complementing
+{uses "quadratic_transport_api"}[the abstract transport API].
+:::
+
 :::theorem "sqrt_neg_five_invariants" (parent := "infinite_places_examples_core") (lean := "QuadraticNumberFields.Examples.SqrtNeg5.ringOfIntegersEquiv, QuadraticNumberFields.Examples.SqrtNeg5.discr_eq, QuadraticNumberFields.Examples.SqrtNeg5.isTotallyComplex, QuadraticNumberFields.Examples.SqrtNeg5.isCMField, QuadraticNumberFields.Examples.SqrtNeg5.nrComplexPlaces_eq_one, QuadraticNumberFields.Examples.SqrtNeg5.card_aut_eq_two, QuadraticNumberFields.Examples.SqrtNeg5.zsqrtd_isDedekindDomain") (tags := "complete, project-only")
 The imaginary quadratic example $`\mathbb{Q}(\sqrt{-5})`. Since
 $`-5 \not\equiv 1 \pmod 4`, its ring of integers is
