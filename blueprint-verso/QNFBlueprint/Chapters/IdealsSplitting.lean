@@ -110,6 +110,19 @@ Every rational prime is split, inert, or ramified in an
 {uses "abstract_qf_classification"}[the squarefree-parameter classification].
 :::
 
+:::theorem "splitting_ideal_factorization_form" (parent := "ideals_splitting_core") (lean := "Ideal.map_eq_of_isSplitIn, Ideal.map_isPrime_of_isInertIn, Ideal.map_eq_sq_of_isRamifiedIn, Ideal.map_eq_of_ramificationIdxIn_eq_one_of_inertiaDegIn_eq_one, Ideal.map_isPrime_of_ncard_primesOver_eq_one_of_ramificationIdxIn_eq_one, Ideal.map_eq_sq_of_one_lt_ramificationIdxIn") (tags := "complete, project-only")
+Ideal-factorization form of the splitting trichotomy
+(`Ideal.map_eq_of_isSplitIn`, `Ideal.map_isPrime_of_isInertIn`,
+`Ideal.map_eq_sq_of_isRamifiedIn`). The numeric
+{uses "quadratic_splitting_trichotomy"}[trichotomy] is translated into the
+classical ideal-factorization language: split primes factor as
+$`\mathfrak{P}_1 \mathfrak{P}_2`, inert primes remain prime, and ramified
+primes factor as $`\mathfrak{P}^2`. The translation uses
+{uses "quadratic_extension_galois_shim"}[the Galois-group shim] to make every
+ramification index in
+{uses "kummer_dedekind_plumbing"}[the Dedekind factorization] uniform.
+:::
+
 :::theorem "sqrt_neg_five_factorizations" (parent := "ideals_splitting_core") (lean := "QuadraticNumberFields.Examples.SqrtNeg5.factorization_of_two, QuadraticNumberFields.Examples.SqrtNeg5.factorization_of_three") (tags := "complete, project-only")
 Ideal factorizations in $`\mathbb{Z}[\sqrt{-5}]` (`factorization_of_two`,
 `factorization_of_three`). The $`\mathbb{Z}[\sqrt{-5}]` examples verify ideal
