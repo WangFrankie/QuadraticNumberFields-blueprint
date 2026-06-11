@@ -19,6 +19,8 @@ The standard coordinate model is $`\mathbb{Q}(\sqrt d)`, implemented as
 coordinates, and the generator satisfies $`\sqrt d^2 = d`. This is the
 computational model used for trace, norm, conjugation, discriminants, and
 splitting calculations.
+
+Declaration shape: `abbrev Qsqrtd (d : ℚ) : Type := QuadraticAlgebra ℚ d 0`.
 :::
 
 :::definition "qsqrtd_not_square_field_condition" (parent := "standard_model_qsqrtd") (lean := "Qsqrtd.instFact_of_not_isSquare, Qsqrtd.instQuadraticField") (tags := "complete, mathlib-candidate")
@@ -26,6 +28,10 @@ The coordinate model is a genuine quadratic field when the parameter is not a
 rational square. The blueprint therefore treats the nonsquare condition as the
 field-entry gate for {uses "standard_model_qsqrtd"}[`Qsqrtd d`], separating the
 quadratic-field cases from the degenerate parameters $`d = 0` and $`d = 1`.
+
+Declaration shape:
+`instance Qsqrtd.instQuadraticField (d : ℚ) [Fact (¬ IsSquare d)] :
+QuadraticField (Qsqrtd d)`.
 :::
 
 :::definition "squarefree_integer_field_condition" (parent := "qsqrtd_not_square_field_condition") (lean := "not_isSquare_ratCast_of_squarefree_ne_one, instFact_not_isSquare_ratCast_of_squarefree_ne_one") (tags := "complete, mathlib-candidate")
@@ -46,6 +52,11 @@ The coordinate API computes trace and norm directly in
 {uses "standard_model_qsqrtd"}[`Qsqrtd d`]. The trace is $`2 \operatorname{re}(x)`,
 and the norm homomorphisms are the bridge from coordinate calculations to
 ring-of-integers and unit arguments.
+
+Declaration shapes: `theorem Qsqrtd.trace_eq_two_re (x : Qsqrtd d) :
+Algebra.trace ℚ (Qsqrtd d) x = 2 * x.re` and
+`theorem Qsqrtd.normHom_apply (d : ℚ) (x : Qsqrtd d) :
+Qsqrtd.normHom d x = Qsqrtd.norm x`.
 :::
 
 :::definition "rational_square_rescaling" (parent := "standard_model_qsqrtd") (lean := "Qsqrtd.rescale, Qsqrtd.rescaleOfNeZero") (tags := "complete, mathlib-candidate")
@@ -61,6 +72,9 @@ $`\mathbb{Q}` is a quadratic extension. It is the abstract object of study;
 {uses "standard_model_qsqrtd"}[the standard model] is a coordinate chart. The
 class wraps `Algebra.IsQuadraticExtension ℚ K`, so abstract statements can use
 `[QuadraticField K]` while still interoperating with mathlib's degree-two API.
+
+Declaration shape: `class QuadraticField (K : Type*) [Field K] [Algebra ℚ K] :
+Prop where isQuadratic : Algebra.IsQuadraticExtension ℚ K`.
 :::
 
 :::theorem "quadratic_field_finrank_and_number_field" (parent := "abstract_quadratic_field") (lean := "QuadraticField.finrank_eq_two, QuadraticField.instNumberField") (tags := "complete, mathlib-candidate")
@@ -74,6 +88,9 @@ A standard parameter is a squarefree integer $`d \ne 1` together with an algebra
 equivalence from the abstract field to {uses "standard_model_qsqrtd"}[`Qsqrtd d`].
 It records that an abstract field has been put into a normalized coordinate
 chart.
+
+Declaration shape: `def IsStandardParameter (K : Type*) [Field K] [Algebra ℚ K]
+(d : ℤ) : Prop := Squarefree d ∧ d ≠ 1 ∧ Nonempty (K ≃ₐ[ℚ] Qsqrtd (d : ℚ))`.
 :::
 
 :::theorem "integer_parameter_normalization" (parent := "standard_parameters") (lean := "Qsqrtd_iso_int_param, Qsqrtd_iso_squarefree_int_param") (tags := "complete, mathlib-candidate")
@@ -86,6 +103,10 @@ a squarefree integer parameter. This is the normalization pipeline behind
 Every {uses "abstract_quadratic_field"}[abstract quadratic field] is
 $`\mathbb{Q}`-algebra-equivalent to {uses "standard_model_qsqrtd"}[`Qsqrtd d`]
 for some squarefree integer $`d \ne 1`.
+
+Declaration shape: `theorem exists_algEquiv_qsqrtd
+(K : Type*) [Field K] [Algebra ℚ K] [QuadraticField K] :
+∃ d : ℤ, Squarefree d ∧ d ≠ 1 ∧ Nonempty (K ≃ₐ[ℚ] Qsqrtd (d : ℚ))`.
 :::
 
 :::theorem "ring_equiv_shadow" (parent := "quadratic_core") (lean := "exists_ringEquiv_qsqrtd") (tags := "complete, mathlib-candidate")

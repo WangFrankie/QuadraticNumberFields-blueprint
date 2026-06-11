@@ -28,6 +28,8 @@ The blueprint is intentionally a nested Lake package: it imports the project for
 declaration links, but it does not add Verso dependencies to the main Lean
 library.
 
+Return to [numbertheory.cc](https://numbertheory.cc/).
+
 {include 0 QNFBlueprint.Chapters.Overview}
 {include 0 QNFBlueprint.Chapters.QuadraticCore}
 {include 0 QNFBlueprint.Chapters.RingOfIntegers}

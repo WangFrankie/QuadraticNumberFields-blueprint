@@ -6,6 +6,12 @@ This repository now contains the `blueprint-verso/` directory moved out of
 The blueprint package, build instructions, local preview commands, and rendered
 site output live under [`blueprint-verso/`](blueprint-verso/).
 
+## Published Blueprint
+
+Primary URL: <https://numbertheory.cc/QuadraticNumberFields/>
+
+Fallback URL: <https://wangfrankie.github.io/QuadraticNumberFields-blueprint/>
+
 ## Dependency Model
 
 The blueprint is an independent Lake package. It depends on the upstream Lean
