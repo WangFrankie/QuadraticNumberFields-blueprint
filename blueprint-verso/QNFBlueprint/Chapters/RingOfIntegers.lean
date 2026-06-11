@@ -14,7 +14,8 @@ The mod-4 classification of rings of integers in quadratic fields.
 :::
 
 :::definition "zsqrtd_order" (parent := "ring_of_integers_core") (lean := "QuadraticNumberFields.Zsqrtd") (tags := "complete, project-only")
-`Zsqrtd d` is the project-owned model of $`\mathbb{Z}[\sqrt d]`. It is not
+`Zsqrtd d` is the project-owned model of $`\mathbb{Z}[\sqrt d]`, sitting inside
+{uses "standard_model_qsqrtd"}[the standard coordinate model]. It is not
 mathlib's `Zsqrtd`; the bridge to mathlib's model is intentionally thin and
 isolated.
 :::
@@ -22,7 +23,8 @@ isolated.
 :::definition "zomega_order" (parent := "ring_of_integers_core") (lean := "ZOnePlusSqrtOverTwo") (tags := "complete, project-only")
 `ZOnePlusSqrtOverTwo k` is the project model of
 $`\mathbb{Z}[(1+\sqrt{1+4k})/2]`, the integral model used in the
-$`d \equiv 1 \pmod 4` branch.
+$`d \equiv 1 \pmod 4` branch and again sitting inside
+{uses "standard_model_qsqrtd"}[the standard coordinate model].
 :::
 
 :::theorem "roi_zsqrtd_branch" (parent := "ring_of_integers_core") (lean := "QuadraticNumberFields.RingOfIntegers.ringOfIntegers_equiv_zsqrtd_of_mod_four_ne_one") (tags := "complete, project-only")
@@ -44,15 +46,21 @@ The classification packages the two branches
 
 :::theorem "integrality_normal_forms" (parent := "ring_of_integers_core") (lean := "QuadraticNumberFields.RingOfIntegers.exists_zsqrtd_of_isIntegral_of_ne_one_mod_four, QuadraticNumberFields.RingOfIntegers.exists_zOnePlusSqrtOverTwo_of_isIntegral_of_one_mod_four") (tags := "complete, project-only")
 The proof runs through half-integer normal forms: integral elements land in the
-correct explicit order according to the same mod-4 branch.
+correct explicit order according to the same mod-4 branch, supplying
+{uses "roi_zsqrtd_branch"}[the non-$`1 \pmod 4` branch] and
+{uses "roi_zomega_branch"}[the $`1 \pmod 4` branch].
 :::
 
 :::theorem "roi_transport_to_abstract_fields" (parent := "ring_of_integers_core") (lean := "QuadraticNumberFields.RingOfIntegers.exists_ringOfIntegers_classification_of_quadraticField") (tags := "complete, project-only")
-After the standard-model calculation, the result transports to any abstract
-quadratic field through the classification by squarefree parameters.
+After {uses "roi_classification"}[the standard-model classification], the
+result transports to any abstract quadratic field through
+{uses "abstract_qf_classification"}[the classification by squarefree
+parameters].
 :::
 
 :::theorem "roi_norm_unit_criteria" (parent := "ring_of_integers_core") (lean := "QuadraticNumberFields.RingOfIntegers.isUnit_zsqrtd_iff_norm_eq_one_or_neg_one, QuadraticNumberFields.RingOfIntegers.isUnit_zOnePlusSqrtOverTwo_iff_norm_eq_one_or_neg_one") (tags := "complete, project-only")
-The two explicit integer-ring models have norm-based unit criteria. These are
-used again in the unit-theory chapter.
+The two explicit integer-ring models
+{uses "zsqrtd_order"}[$`\mathbb{Z}[\sqrt d]`] and
+{uses "zomega_order"}[$`\mathbb{Z}[(1+\sqrt d)/2]`] have norm-based unit
+criteria. These are used again in the unit-theory chapter.
 :::

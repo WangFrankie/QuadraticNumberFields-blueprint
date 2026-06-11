@@ -65,7 +65,11 @@ jobs:
       - name: Render blueprint
         working-directory: blueprint-verso
         env:
-          SKIP_RENDER: ${{ github.event_name == 'workflow_dispatch' && inputs.skip_render && '1' || '' }}
+          # SKIP_RENDER=1 when either:
+          #   * workflow_dispatch with skip_render input, or
+          #   * push commit message contains '[skip-render]' (deploy-only push
+          #     of a locally rendered _out/).
+          SKIP_RENDER: ${{ ((github.event_name == 'workflow_dispatch' && inputs.skip_render) || contains(github.event.head_commit.message, '[skip-render]')) && '1' || '' }}
         run: ./scripts/ci-pages.sh
 
       - name: Check rendered output

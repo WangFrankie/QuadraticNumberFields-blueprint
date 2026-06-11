@@ -15,35 +15,45 @@ Local shims, upstream candidates, and project-only APIs.
 
 :::definition "local_mathlib_shims" (parent := "mathlib_upstream_core") (tags := "partial, mathlib-candidate")
 General-purpose facts that are missing from mathlib are developed locally under
-`QuadraticNumberFields/Mathlib/`, mirroring likely upstream paths.
+`QuadraticNumberFields/Mathlib/`, mirroring likely upstream paths and feeding
+{uses "mathlib_upstream_boundary"}[the upstream-candidate boundary].
 :::
 
 :::theorem "discriminant_transport_shim" (parent := "mathlib_upstream_core") (lean := "NumberField.discr_eq_of_algEquiv") (tags := "complete, mathlib-candidate")
-`NumberField.discr_eq_of_algEquiv` is a local upstream candidate for transporting
-absolute discriminants across algebra equivalences.
+`NumberField.discr_eq_of_algEquiv` is a {uses "local_mathlib_shims"}[local
+upstream candidate] for transporting absolute discriminants across algebra
+equivalences, used by
+{uses "discr_formula_transport"}[the discriminant-formula transport].
 :::
 
 :::definition "ring_of_integers_transport_shim" (parent := "mathlib_upstream_core") (lean := "AlgEquiv.ringOfIntegers") (tags := "complete, mathlib-candidate")
 `AlgEquiv.ringOfIntegers` transports rings of integers across algebra
-equivalences and belongs to the general transport layer.
+equivalences and belongs to {uses "local_mathlib_shims"}[the general transport
+layer], underlying
+{uses "roi_transport_to_abstract_fields"}[the ring-of-integers transport].
 :::
 
 :::theorem "dedekind_transport_shim" (parent := "mathlib_upstream_core") (lean := "RingEquiv.isDedekindDomain_ringOfIntegers") (tags := "complete, mathlib-candidate")
-The Dedekind-domain transport lemma is another candidate for eventual upstream
-movement once its final mathlib home is chosen.
+The Dedekind-domain transport lemma is another
+{uses "local_mathlib_shims"}[shim] candidate for eventual upstream movement
+once its final mathlib home is chosen; it backs
+{uses "dedekind_domain_project_zsqrtd"}[the project Dedekind-domain statement].
 :::
 
 :::definition "project_owned_zsqrtd_boundary" (parent := "mathlib_upstream_core") (lean := "QuadraticNumberFields.Zsqrtd") (tags := "complete, project-only")
-The project-owned `Zsqrtd` model stays independent from mathlib's `Zsqrtd` except
-for the dedicated bridge file. This is project architecture, not an upstream API.
+{uses "zsqrtd_order"}[The project-owned `Zsqrtd` model] stays independent from
+mathlib's `Zsqrtd` except for the dedicated bridge file. This is project
+architecture, not an upstream API.
 :::
 
 :::theorem "ring_of_integers_project_only" (parent := "mathlib_upstream_core") (lean := "QuadraticNumberFields.RingOfIntegers.ringOfIntegers_classification") (tags := "complete, project-only")
-The ring-of-integers classification is currently project-only: it is central to
-this repository but not presented as a finished mathlib theorem.
+{uses "roi_classification"}[The ring-of-integers classification] is currently
+project-only: it is central to this repository but not presented as a finished
+mathlib theorem.
 :::
 
 :::theorem "upstream_lifecycle" (parent := "mathlib_upstream_core") (tags := "partial, mathlib-candidate")
-The intended lifecycle is: add a local shim, use it in the project, upstream it
-through a mathlib PR, then delete the local shim and migrate callers.
+The intended lifecycle is: add a {uses "local_mathlib_shims"}[local shim], use
+it in the project, upstream it through a mathlib PR, then delete the local
+shim and migrate callers.
 :::
