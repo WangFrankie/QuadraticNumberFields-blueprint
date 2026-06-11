@@ -59,6 +59,18 @@ explicit {uses "legendre_symbol_split_inert"}[Legendre-symbol] and
 {uses "quadratic_splitting_trichotomy"}[the trichotomy].
 :::
 
+:::theorem "minpoly_mod_p_layer" (parent := "ring_of_integers_monogenic_generator") (lean := "QuadraticNumberFields.Splitting.sq_sub_C_splits_iff_isSquare, QuadraticNumberFields.Splitting.sq_sub_C_irreducible_iff_not_isSquare, QuadraticNumberFields.Splitting.sq_sub_C_separable_iff, QuadraticNumberFields.Splitting.sq_sub_splits_mod_iff, QuadraticNumberFields.Splitting.sq_sub_irreducible_mod_iff, QuadraticNumberFields.Splitting.legendreSym_eq_zero_iff_dvd, QuadraticNumberFields.Splitting.normalizedFactors_X_sq_sub_C_sq_card_eq_two, QuadraticNumberFields.Splitting.normalizedFactors_X_sq_sub_C_card_eq_two_of_legendre_eq_one, QuadraticNumberFields.Splitting.normalizedFactors_X_sq_sub_C_card_eq_one_of_legendre_ne_one, QuadraticNumberFields.Splitting.normalizedFactors_X_sq_sub_X_sub_C_card_eq_two_of_legendre_eq_one, QuadraticNumberFields.Splitting.normalizedFactors_X_sq_sub_X_sub_C_card_eq_one_of_legendre_ne_one, QuadraticNumberFields.Splitting.irreducible_X_sq_sub_X_sub_C_of_not_square_discr") (tags := "complete, project-only")
+The minimal-polynomial mod $`p` layer
+(`sq_sub_C_splits_iff_isSquare`, `sq_sub_splits_mod_iff`,
+`normalizedFactors_X_sq_sub_C_card_eq_two_of_legendre_eq_one`). The polynomial
+$`X^2 - C(a)` and the half-integer minpoly $`X^2 - X - C(k)` are analyzed mod
+$`p`: splitting, irreducibility, and separability reduce to "is $`a` a
+square?" and to the Legendre symbol. The cardinalities of normalized
+factorizations land in $`\{1, 2\}`, supplying
+{uses "kummer_dedekind_plumbing"}[the Kummer-Dedekind input] for the
+half-integer and integer monogenic branches.
+:::
+
 :::theorem "quadratic_splitting_trichotomy" (parent := "ideals_splitting_core") (lean := "QuadraticNumberFields.Splitting.splitting_classification, QuadraticNumberFields.Splitting.split_or_inert_or_ramified") (tags := "complete, project-only")
 The split/inert/ramified trichotomy for quadratic primes
 (`splitting_classification`). The stable splitting API packages split, inert,

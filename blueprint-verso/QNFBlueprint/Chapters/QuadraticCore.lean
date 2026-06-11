@@ -2,6 +2,7 @@ import Verso
 import VersoManual
 import VersoBlueprint
 import QuadraticNumberFields
+import QuadraticNumberFields.Sketch
 
 open Verso.Genre
 open Verso.Genre.Manual
@@ -133,6 +134,18 @@ Ring-equivalence form of the quadratic-field classification
 {uses "abstract_qf_classification"}[The classification] also has a
 ring-equivalence shadow. This is useful when transporting invariants whose API
 is stated for ring equivalences rather than algebra equivalences.
+:::
+
+:::definition "square_ratio_equivalence_criterion" (parent := "quadratic_core") (lean := "Qsqrtd.IsSquareRatio, Qsqrtd.IsSquareRatioByDivision, Qsqrtd.nonempty_algEquiv_of_isSquareRatio, Qsqrtd.isSquareRatio_iff_isSquareRatioByDivision, Qsqrtd.algEquiv_iff_isSquareRatio, Qsqrtd.algEquiv_iff_isSquareRatioByDivision") (tags := "complete, project-only")
+Square-ratio equivalence criterion for standard models
+(`Qsqrtd.IsSquareRatio`, `Qsqrtd.algEquiv_iff_isSquareRatio`). Two standard
+models {uses "standard_model_qsqrtd"}[$`\mathbb{Q}(\sqrt{d_1})` and
+$`\mathbb{Q}(\sqrt{d_2})`] are algebra-equivalent iff $`d_1/d_2` is a rational
+square, captured by the `IsSquareRatio` predicate. The division form
+(`IsSquareRatioByDivision`) gives an alternative phrasing under $`d_1 \ne 0`,
+and the iff feeds {uses "parameter_uniqueness"}[the parameter uniqueness
+theorem] and {uses "generator_relation_for_equivalences"}[the generator
+relation].
 :::
 
 :::theorem "quadratic_field_iff_standard_model" (parent := "quadratic_core") (lean := "isQuadraticField_iff_exists_squarefree_int_param") (tags := "complete, mathlib-candidate")

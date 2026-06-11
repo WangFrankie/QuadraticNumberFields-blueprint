@@ -93,3 +93,23 @@ integer-ring models {uses "zsqrtd_order"}[$`\mathbb{Z}[\sqrt d]`] and
 {uses "zomega_order"}[$`\mathbb{Z}[(1+\sqrt d)/2]`] have norm-based unit
 criteria, used again in the unit-theory chapter.
 :::
+
+:::theorem "norm_mul_one_and_integer_models" (parent := "ring_of_integers_core") (lean := "QuadraticNumberFields.norm_mul, QuadraticNumberFields.norm_one, QuadraticNumberFields.RingOfIntegers.norm_zsqrtd, QuadraticNumberFields.RingOfIntegers.norm_mul_zsqrtd, QuadraticNumberFields.RingOfIntegers.norm_zsqrtd_toQsqrtd, QuadraticNumberFields.RingOfIntegers.norm_zOnePlusSqrtOverTwo, QuadraticNumberFields.RingOfIntegers.norm_mul_zOnePlusSqrtOverTwo, QuadraticNumberFields.RingOfIntegers.norm_zOnePlusSqrtOverTwo_toQsqrtd") (tags := "complete, project-only")
+Norm laws and integer-coordinate norm formulas
+(`norm_mul`, `norm_one`, `RingOfIntegers.norm_zsqrtd`,
+`RingOfIntegers.norm_zOnePlusSqrtOverTwo`). The norm is multiplicative with
+$`N(1) = 1`, and on the explicit integer orders it has the closed-form
+coordinate expressions $`x^2 - dy^2` and $`x^2 + xy - ky^2`. The
+$`\cdot_{\textrm{toQsqrtd}}` variants confirm the same formulas after
+embedding into {uses "standard_model_qsqrtd"}[the standard field].
+:::
+
+:::theorem "norm_lands_in_integer_order" (parent := "ring_of_integers_core") (lean := "QuadraticNumberFields.RingOfIntegers.norm_mem_zsqrtd, QuadraticNumberFields.RingOfIntegers.norm_mem_zOnePlusSqrtOverTwo, QuadraticNumberFields.RingOfIntegers.norm_mem_ringOfIntegers") (tags := "complete, project-only")
+The norm of an integral element is again integral
+(`RingOfIntegers.norm_mem_zsqrtd`, `norm_mem_zOnePlusSqrtOverTwo`,
+`norm_mem_ringOfIntegers`). The norm restricts from $`\mathbb{Q}(\sqrt d)` to
+$`\mathbb{Q}`, but its values on integer-order elements lie in
+$`\mathbb{Z}`, and the same restriction holds for arbitrary
+{uses "roi_classification"}[ring-of-integers] elements — the input needed
+for {uses "minkowski_representatives"}[bounded-norm class representatives].
+:::
