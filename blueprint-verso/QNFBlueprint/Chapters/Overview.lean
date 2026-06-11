@@ -45,13 +45,16 @@ project. This boundary protects {uses "stable_public_surface"}[the public API]
 from pretending local shims are already upstream facts.
 :::
 
-:::theorem "baker_heegner_stark_long_term_goal" (parent := "overview_surface") (tags := "future, external-assumption, project-only") (effort := "large") (priority := "medium")
-The long-term Diophantine goal is a Baker--Heegner--Stark-style route toward
-class-number-one and related quadratic-field classification results. In the
-first blueprint this remains conditional on substantial future CM, ring-class
-field, modular-function, and finite-check input, and it depends on the distinction
-between {uses "stable_public_surface"}[formalized infrastructure] and
-{uses "sketch_surface"}[research scaffolding].
+:::theorem "baker_heegner_stark_long_term_goal" (parent := "overview_surface") (tags := "partial, external-assumption, project-only") (effort := "large") (priority := "medium")
+The long-term Diophantine goal is the full Baker--Heegner--Stark theorem and
+related quadratic-field classification results. The elementary direction —
+class number one for all nine Heegner numbers, via Minkowski bounds and inert
+primes — is now complete in
+{uses "stable_public_surface"}[the stable surface], and the full equivalence
+is stated (with the deep direction as `sorry`) in
+{uses "sketch_surface"}[the sketch surface]. The converse remains conditional
+on substantial future CM, ring-class-field, modular-function, or
+transcendence input.
 :::
 
 :::definition "status_vocabulary" (parent := "overview_surface") (tags := "project-only")
