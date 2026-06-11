@@ -35,19 +35,20 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: Setup Lean
-        uses: leanprover/lean-action@v1
-        with:
-          auto-config: false
-          build: false
-          lint: false
-          test: false
-
       - name: Clone source repo (blueprint-verso branch)
         run: |
           git clone --depth 1 --branch blueprint-verso \
             https://github.com/WangFrankie/QuadraticNumberFields.git source
           git -C source log -1 --format='source commit: %H'
+
+      - name: Setup Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: source/blueprint-verso
+          auto-config: false
+          build: false
+          lint: false
+          test: false
 
       - name: Render blueprint
         working-directory: source/blueprint-verso
