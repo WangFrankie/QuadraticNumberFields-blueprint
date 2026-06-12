@@ -163,9 +163,37 @@ $`11`, exercising all branches of
 {uses "quadratic_splitting_trichotomy"}[the quadratic splitting trichotomy].
 :::
 
-:::theorem "kronecker_symbol_unification" (parent := "ideals_splitting_core") (tags := "future, project-only") (effort := "medium")
-A future cleanup should unify
-{uses "legendre_symbol_split_inert"}[the odd-prime] and
-{uses "two_adic_splitting"}[two-adic] splitting statements using a
-Kronecker-symbol formulation where that abstraction is helpful.
+:::definition "kronecker_symbol_api" (parent := "ideals_splitting_core") (lean := "kroneckerTwo, kroneckerSymNat, kroneckerSym, kroneckerSymNat_two, kroneckerSym_natCast, kroneckerSymNat_eq_legendreSym_of_ne_two") (tags := "complete, mathlib-candidate")
+The Kronecker symbol API (`kroneckerSymNat`, `kroneckerSym`). The Jacobi
+symbol is extended to arbitrary natural and integer denominators by the
+supplementary value $`(D/2)`, with the mod-$`8` supplementary law and the
+reduction to the Legendre symbol at odd primes.
+:::
+
+:::theorem "kronecker_symbol_unification" (parent := "ideals_splitting_core") (lean := "QuadraticNumberFields.Splitting.splitting_classification_kronecker, QuadraticNumberFields.Splitting.isSplit_iff_kroneckerSymNat_disc_eq_one, QuadraticNumberFields.Splitting.isInert_iff_kroneckerSymNat_disc_eq_neg_one, QuadraticNumberFields.Splitting.isRamified_iff_kroneckerSymNat_disc_eq_zero, QuadraticNumberFields.Splitting.isSplit_iff_kroneckerSymNat_discr_eq_one, QuadraticNumberFields.Splitting.isInert_iff_kroneckerSymNat_discr_eq_neg_one, QuadraticNumberFields.Splitting.isRamified_iff_kroneckerSymNat_discr_eq_zero") (tags := "complete, project-only")
+Splitting by the discriminant Kronecker value
+(`splitting_classification_kronecker`,
+`isSplit_iff_kroneckerSymNat_disc_eq_one`). The
+{uses "legendre_symbol_split_inert"}[odd-prime] and
+{uses "two_adic_splitting"}[two-adic] splitting statements are unified: a
+prime $`p` splits, is inert, or ramifies in
+$`\mathcal{O}(\mathbb{Q}(\sqrt d))` according as the
+{uses "kronecker_symbol_api"}[Kronecker value] of the field discriminant is
+$`1`, $`-1`, or $`0`, stated both for the explicit discriminant value
+$`D(d)` and for `NumberField.discr`.
+:::
+
+:::definition "kronecker_character_api" (parent := "kronecker_symbol_api") (lean := "QuadraticNumberFields.kroneckerCharacterFun, QuadraticNumberFields.kroneckerCharacter, QuadraticNumberFields.kroneckerCharacter_apply_natCast, QuadraticNumberFields.kroneckerCharacter_apply_intCast") (tags := "complete, mathlib-candidate")
+The Kronecker symbol packaged as a Dirichlet character
+(`kroneckerCharacter`). For any integer $`D` with
+$`D \equiv 0,1 \pmod 4`, the character on $`\mathbb{Z}/|D|\mathbb{Z}`
+evaluates to the Kronecker symbol at natural and integer representatives.
+:::
+
+:::theorem "kronecker_character_splitting" (parent := "kronecker_symbol_unification") (lean := "QuadraticNumberFields.Splitting.isSplit_iff_kroneckerCharacter_disc_eq_one, QuadraticNumberFields.Splitting.isInert_iff_kroneckerCharacter_disc_eq_neg_one, QuadraticNumberFields.Splitting.isRamified_iff_kroneckerCharacter_disc_eq_zero, QuadraticNumberFields.Splitting.isSplit_iff_kroneckerCharacter_discr_eq_one, QuadraticNumberFields.Splitting.isInert_iff_kroneckerCharacter_discr_eq_neg_one, QuadraticNumberFields.Splitting.isRamified_iff_kroneckerCharacter_discr_eq_zero") (tags := "complete, project-only")
+Character-form splitting criteria for quadratic fields. The split, inert, and
+ramified alternatives are restated using
+{uses "kronecker_character_api"}[`kroneckerCharacter`] evaluated at the prime
+class modulo the field discriminant, again for both the explicit discriminant
+$`D(d)` and `NumberField.discr`.
 :::
