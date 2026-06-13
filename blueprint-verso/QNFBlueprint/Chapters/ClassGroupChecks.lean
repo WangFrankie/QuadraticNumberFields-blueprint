@@ -123,6 +123,30 @@ Together these are the well-definedness backbone of the FormClass quotient:
 the reduced forms serve as canonical class representatives.
 :::
 
+:::theorem "reduced_form_coefficient_bounds" (parent := "reduced_binary_quadratic_forms") (lean := "QuadraticNumberFields.BinaryQuadraticForm.three_mul_a_sq_le_neg_disc_of_isReduced, QuadraticNumberFields.BinaryQuadraticForm.three_mul_a_natAbs_sq_le_disc_natAbs") (tags := "complete, project-only")
+Coefficient bounds for reduced forms. A
+{uses "reduced_binary_quadratic_forms"}[reduced positive definite form]
+satisfies the classical discriminant bound $`3a^2 \le |D|`
+(`three_mul_a_sq_le_neg_disc_of_isReduced`), with a `Nat`-valued corollary
+(`three_mul_a_natAbs_sq_le_disc_natAbs`) that gives a concrete size
+estimate on the leading coefficient. These bounds are the arithmetic input
+to {uses "reduced_form_enumeration"}[the enumeration pipeline].
+:::
+
+:::theorem "reduced_form_enumeration" (parent := "reduced_representatives_in_quotient") (lean := "QuadraticNumberFields.BinaryQuadraticForm.decidableHasDiscriminant, QuadraticNumberFields.BinaryQuadraticForm.decidableIsPositiveDefinite, QuadraticNumberFields.BinaryQuadraticForm.decidableIsReduced, QuadraticNumberFields.BinaryQuadraticForm.decidableIsPrimitive, QuadraticNumberFields.BinaryQuadraticForm.searchBound, QuadraticNumberFields.BinaryQuadraticForm.aCandidates, QuadraticNumberFields.BinaryQuadraticForm.bCandidates, QuadraticNumberFields.BinaryQuadraticForm.candidateForms, QuadraticNumberFields.BinaryQuadraticForm.enumPrimitiveReducedFormsList, QuadraticNumberFields.BinaryQuadraticForm.enumPrimitiveReducedForms, QuadraticNumberFields.BinaryQuadraticForm.mem_enumPrimitiveReducedForms_iff, QuadraticNumberFields.BinaryQuadraticForm.of_mem_enumPrimitiveReducedFormsList, QuadraticNumberFields.BinaryQuadraticForm.of_mem_enumPrimitiveReducedForms") (tags := "complete, project-only")
+Enumeration of primitive reduced positive definite forms. The pipeline
+combines four decidability instances (discriminant, positive definiteness,
+reduced, primitive) with a `searchBound` derived from
+{uses "reduced_form_coefficient_bounds"}[the coefficient bounds], then
+exhaustively searches the $(a, b, c)$ grid. `enumPrimitiveReducedFormsList`
+returns the raw list; `enumPrimitiveReducedForms` is the `Finset` view; and
+the three soundness lemmas (`mem_enumPrimitiveReducedForms_iff` plus the two
+`of_mem` lifts) prove that membership in the enumeration matches the filter
+predicates. This is the computable realization of
+{uses "reduced_representatives_in_quotient"}[the reduced-representative
+backbone] of the FormClass quotient.
+:::
+
 :::theorem "imaginary_minkowski_numeric" (parent := "class_group_checks_core") (lean := "QuadraticNumberFields.Qsqrtd.minkowskiBound_lt_of_neg") (tags := "complete, project-only")
 Numeric estimates for the imaginary quadratic Minkowski bound
 (`minkowskiBound_lt_of_neg`). If $`4|D| < 9n^2`, then the bound is below
