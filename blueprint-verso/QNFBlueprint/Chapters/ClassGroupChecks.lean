@@ -88,6 +88,18 @@ structure that the Cox form-class bridge takes as input, sitting on top of
 {uses "reduced_binary_quadratic_forms"}[the reduced-form predicate].
 :::
 
+:::theorem "form_class_quotient" (parent := "binary_quadratic_form_proper_equivalence") (lean := "QuadraticNumberFields.BinaryQuadraticForm.PrimitivePositiveDefiniteForm, QuadraticNumberFields.BinaryQuadraticForm.PrimitivePositiveDefiniteForm.ProperEquivalent, QuadraticNumberFields.BinaryQuadraticForm.primitivePositiveDefiniteFormSetoid, QuadraticNumberFields.BinaryQuadraticForm.FormClass") (tags := "complete, project-only")
+Quotient of primitive positive definite forms. The carrier
+`PrimitivePositiveDefiniteForm D` packages
+{uses "binary_quadratic_form_discriminant"}[discriminant], primitivity, and
+positive definiteness; {uses "binary_quadratic_form_proper_equivalence"}[proper
+equivalence] restricted to that carrier is a `Setoid`; and the resulting
+`FormClass D` is the actual Cox 7.7 class-group carrier, replacing the earlier
+subtype placeholder with a true quotient. This is the form-side analogue of
+{uses "class_group_triviality_from_inert_primes"}[the class-group triviality
+criterion] on the ideal side.
+:::
+
 :::theorem "imaginary_minkowski_numeric" (parent := "class_group_checks_core") (lean := "QuadraticNumberFields.Qsqrtd.minkowskiBound_lt_of_neg") (tags := "complete, project-only")
 Numeric estimates for the imaginary quadratic Minkowski bound
 (`minkowskiBound_lt_of_neg`). If $`4|D| < 9n^2`, then the bound is below
