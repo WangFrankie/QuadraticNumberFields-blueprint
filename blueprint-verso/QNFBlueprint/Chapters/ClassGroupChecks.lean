@@ -78,6 +78,16 @@ normalization, giving the downstream enumeration pipeline a triple-coordinate
 interface.
 :::
 
+:::theorem "binary_quadratic_form_proper_equivalence" (parent := "binary_quadratic_form_discriminant") (lean := "QuadraticNumberFields.BinaryQuadraticForm.transform_mul, QuadraticNumberFields.BinaryQuadraticForm.ProperEquivalent, QuadraticNumberFields.BinaryQuadraticForm.ProperEquivalent.refl, QuadraticNumberFields.BinaryQuadraticForm.ProperEquivalent.symm, QuadraticNumberFields.BinaryQuadraticForm.ProperEquivalent.trans") (tags := "complete, project-only")
+Proper equivalence of binary quadratic forms. The `SL₂(ℤ)` action
+(`transform`) composes with the group law (`transform_mul`), and the induced
+`ProperEquivalent` relation is an equivalence relation
+(`ProperEquivalent.refl`, `.symm`, `.trans`). This assembles the orbit
+structure that the Cox form-class bridge takes as input, sitting on top of
+{uses "binary_quadratic_form_discriminant"}[the form discriminant] and
+{uses "reduced_binary_quadratic_forms"}[the reduced-form predicate].
+:::
+
 :::theorem "imaginary_minkowski_numeric" (parent := "class_group_checks_core") (lean := "QuadraticNumberFields.Qsqrtd.minkowskiBound_lt_of_neg") (tags := "complete, project-only")
 Numeric estimates for the imaginary quadratic Minkowski bound
 (`minkowskiBound_lt_of_neg`). If $`4|D| < 9n^2`, then the bound is below
