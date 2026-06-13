@@ -133,16 +133,17 @@ estimate on the leading coefficient. These bounds are the arithmetic input
 to {uses "reduced_form_enumeration"}[the enumeration pipeline].
 :::
 
-:::theorem "reduced_form_enumeration" (parent := "reduced_representatives_in_quotient") (lean := "QuadraticNumberFields.BinaryQuadraticForm.decidableHasDiscriminant, QuadraticNumberFields.BinaryQuadraticForm.decidableIsPositiveDefinite, QuadraticNumberFields.BinaryQuadraticForm.decidableIsReduced, QuadraticNumberFields.BinaryQuadraticForm.decidableIsPrimitive, QuadraticNumberFields.BinaryQuadraticForm.searchBound, QuadraticNumberFields.BinaryQuadraticForm.aCandidates, QuadraticNumberFields.BinaryQuadraticForm.bCandidates, QuadraticNumberFields.BinaryQuadraticForm.candidateForms, QuadraticNumberFields.BinaryQuadraticForm.enumPrimitiveReducedFormsList, QuadraticNumberFields.BinaryQuadraticForm.enumPrimitiveReducedForms, QuadraticNumberFields.BinaryQuadraticForm.mem_enumPrimitiveReducedForms_iff, QuadraticNumberFields.BinaryQuadraticForm.of_mem_enumPrimitiveReducedFormsList, QuadraticNumberFields.BinaryQuadraticForm.of_mem_enumPrimitiveReducedForms") (tags := "complete, project-only")
+:::theorem "reduced_form_enumeration" (parent := "reduced_representatives_in_quotient") (lean := "QuadraticNumberFields.BinaryQuadraticForm.decidableHasDiscriminant, QuadraticNumberFields.BinaryQuadraticForm.decidableIsPositiveDefinite, QuadraticNumberFields.BinaryQuadraticForm.decidableIsReduced, QuadraticNumberFields.BinaryQuadraticForm.decidableIsPrimitive, QuadraticNumberFields.BinaryQuadraticForm.searchBound, QuadraticNumberFields.BinaryQuadraticForm.aCandidates, QuadraticNumberFields.BinaryQuadraticForm.bCandidates, QuadraticNumberFields.BinaryQuadraticForm.candidateForms, QuadraticNumberFields.BinaryQuadraticForm.enumPrimitiveReducedFormsList, QuadraticNumberFields.BinaryQuadraticForm.enumPrimitiveReducedForms, QuadraticNumberFields.BinaryQuadraticForm.a_natAbs_le_searchBound, QuadraticNumberFields.BinaryQuadraticForm.mem_enumPrimitiveReducedForms_iff, QuadraticNumberFields.BinaryQuadraticForm.of_mem_enumPrimitiveReducedFormsList, QuadraticNumberFields.BinaryQuadraticForm.of_mem_enumPrimitiveReducedForms") (tags := "complete, project-only")
 Enumeration of primitive reduced positive definite forms. The pipeline
 combines four decidability instances (discriminant, positive definiteness,
 reduced, primitive) with a `searchBound` derived from
 {uses "reduced_form_coefficient_bounds"}[the coefficient bounds], then
 exhaustively searches the $(a, b, c)$ grid. `enumPrimitiveReducedFormsList`
 returns the raw list; `enumPrimitiveReducedForms` is the `Finset` view; and
-the three soundness lemmas (`mem_enumPrimitiveReducedForms_iff` plus the two
-`of_mem` lifts) prove that membership in the enumeration matches the filter
-predicates. This is the computable realization of
+the four soundness lemmas (`a_natAbs_le_searchBound` plus
+`mem_enumPrimitiveReducedForms_iff` and the two `of_mem` lifts) prove that
+the search bound is wide enough and that membership in the enumeration
+matches the filter predicates. This is the computable realization of
 {uses "reduced_representatives_in_quotient"}[the reduced-representative
 backbone] of the FormClass quotient.
 :::
