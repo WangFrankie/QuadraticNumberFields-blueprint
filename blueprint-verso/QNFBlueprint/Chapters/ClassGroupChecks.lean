@@ -100,6 +100,29 @@ subtype placeholder with a true quotient. This is the form-side analogue of
 criterion] on the ideal side.
 :::
 
+:::theorem "form_invariants_under_action" (parent := "binary_quadratic_form_proper_equivalence") (lean := "QuadraticNumberFields.BinaryQuadraticForm.eval_pos_of_isPositiveDefinite, QuadraticNumberFields.BinaryQuadraticForm.disc_eq_of_properEquivalent, QuadraticNumberFields.BinaryQuadraticForm.isPositiveDefinite_transform") (tags := "complete, project-only")
+Invariants preserved by the `SL₂(ℤ)` action. The `transform` action preserves
+the three pillars of form invariance: `eval` of a positive definite form is
+strictly positive on nonzero inputs (`eval_pos_of_isPositiveDefinite`); the
+discriminant is invariant under proper equivalence
+(`disc_eq_of_properEquivalent`); and positive definiteness survives the
+coordinate transform (`isPositiveDefinite_transform`). These are the
+transport lemmas that make {uses "form_class_quotient"}[the FormClass
+quotient] well-defined.
+:::
+
+:::theorem "reduced_representatives_in_quotient" (parent := "form_class_quotient") (lean := "QuadraticNumberFields.BinaryQuadraticForm.exists_isReduced_primitivePositiveDefiniteForm_properEquivalent, QuadraticNumberFields.BinaryQuadraticForm.eq_of_isReduced_primitivePositiveDefiniteForm_of_properEquivalent") (tags := "complete, project-only")
+Reduced representatives inside the primitive positive definite carrier.
+Every {uses "form_class_quotient"}[FormClass element] has a
+{uses "reduced_binary_quadratic_forms"}[reduced] representative in the
+restricted carrier
+(`exists_isReduced_primitivePositiveDefiniteForm_properEquivalent`), and
+that representative is unique up to equality of the underlying forms
+(`eq_of_isReduced_primitivePositiveDefiniteForm_of_properEquivalent`).
+Together these are the well-definedness backbone of the FormClass quotient:
+the reduced forms serve as canonical class representatives.
+:::
+
 :::theorem "imaginary_minkowski_numeric" (parent := "class_group_checks_core") (lean := "QuadraticNumberFields.Qsqrtd.minkowskiBound_lt_of_neg") (tags := "complete, project-only")
 Numeric estimates for the imaginary quadratic Minkowski bound
 (`minkowskiBound_lt_of_neg`). If $`4|D| < 9n^2`, then the bound is below
