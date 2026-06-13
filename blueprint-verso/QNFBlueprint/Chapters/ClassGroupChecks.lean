@@ -65,6 +65,19 @@ factorization of `(2)` by the norm-two elements `(5\pm\sqrt{17})/2`, showing
 that every norm-two representative is principal.
 :::
 
+:::theorem "binary_quadratic_form_discriminant" (parent := "class_group_checks_core") (lean := "QuadraticNumberFields.BinaryQuadraticForm.disc") (tags := "complete, project-only")
+Binary quadratic form discriminants. The project-owned `BinaryQuadraticForm`
+triple model exposes the classical discriminant $`b^2-4ac` as the core
+arithmetic invariant for the Cox/Gauss class-group bridge.
+:::
+
+:::theorem "reduced_binary_quadratic_forms" (parent := "binary_quadratic_form_discriminant") (lean := "QuadraticNumberFields.BinaryQuadraticForm.IsReduced") (tags := "complete, project-only")
+Reduced positive-definite binary quadratic forms. The predicate uses the
+traditional coefficient inequalities $`|b| \le a \le c` together with boundary
+normalization, giving the downstream enumeration pipeline a triple-coordinate
+interface.
+:::
+
 :::theorem "imaginary_minkowski_numeric" (parent := "class_group_checks_core") (lean := "QuadraticNumberFields.Qsqrtd.minkowskiBound_lt_of_neg") (tags := "complete, project-only")
 Numeric estimates for the imaginary quadratic Minkowski bound
 (`minkowskiBound_lt_of_neg`). If $`4|D| < 9n^2`, then the bound is below
