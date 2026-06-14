@@ -13,11 +13,12 @@ open Informal
 Local shims, upstream candidates, and project-only APIs.
 :::
 
-:::definition "local_mathlib_shims" (parent := "mathlib_upstream_core") (tags := "partial, mathlib-candidate")
+:::definition "local_mathlib_shims" (parent := "mathlib_upstream_core") (lean := "QuadraticNumberFields.Mathlib") (tags := "partial, mathlib-candidate")
 Local mathlib-candidate shims. General-purpose facts that are missing from
 mathlib are developed locally under
 `QuadraticNumberFields/Mathlib/`, mirroring likely upstream paths and feeding
 {uses "mathlib_upstream_boundary"}[the upstream-candidate boundary].
+:::
 :::
 
 :::theorem "discriminant_transport_shim" (parent := "mathlib_upstream_core") (lean := "NumberField.discr_eq_of_algEquiv") (tags := "complete, mathlib-candidate")

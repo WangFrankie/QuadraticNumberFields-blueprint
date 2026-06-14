@@ -156,5 +156,7 @@ $`d < 0` with $`d \ne 1`, the conjectural equivalence is:
 $`\iff` {uses "euclidean_ring_of_integers_predicate"}[the ring of integers is
 Euclidean] $`\iff` it is norm-Euclidean. The framework theorem packages the
 two-way biconditionals; each direction is a `sorry` awaiting the existing
-classical proofs.
+classical proofs (see {ref "ref_marcus_number_fields"}[Marcus, *Number Fields*,
+Ch. 4] and {ref "ref_cox_primes"}[Cox, *Primes of the form $`x^2 + n y^2`*,
+Ch. 7] in {ref "references_bibliography"}[the references chapter]).
 :::

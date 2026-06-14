@@ -72,9 +72,8 @@ predicate usable across coordinate models.
 :::theorem "fundamental_unit_transport" (parent := "units_core") (lean := "QuadraticNumberFields.Units.IsFundamentalUnit.map_ringEquiv") (tags := "complete, project-only")
 Transport of fundamental units across ring equivalences
 (`IsFundamentalUnit.map_ringEquiv`). {uses "fundamental_unit_predicate"}[Fundamental-unit
-structure] transports across ring equivalences, matching the project's broader
-transport-first
-architecture and aligning with
+structure] is preserved by ring equivalences, in line with the
+{uses "quadratic_transport_api"}[project's general transport API] and with
 {uses "ring_equiv_shadow"}[the ring-equivalence shadow of the classification].
 :::
 

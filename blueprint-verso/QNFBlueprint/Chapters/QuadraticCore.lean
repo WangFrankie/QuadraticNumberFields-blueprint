@@ -256,5 +256,8 @@ Conjugate-pair automorphism finset and the standard star equivalence
 automorphism finset is the pair `{1, conj}`, while the explicit star algebra
 equivalence on {uses "standard_model_qsqrtd"}[$`\mathbb{Q}(\sqrt d)`]
 realizes {uses "quadratic_conjugation"}[the abstract conjugation] in
-coordinates.
+coordinates. These results underpin
+{uses "trace_norm_via_conjugation"}[the abstract trace-norm identities]
+and pair with the {ref "gloss_class_group"}[class-group] layer on the
+example side.
 :::

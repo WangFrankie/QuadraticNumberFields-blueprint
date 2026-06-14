@@ -7,11 +7,13 @@ import QNFBlueprint.Chapters.BakerHeegnerStark
 import QNFBlueprint.Chapters.ClassGroupChecks
 import QNFBlueprint.Chapters.Counterexamples
 import QNFBlueprint.Chapters.Discriminant
+import QNFBlueprint.Chapters.Glossary
 import QNFBlueprint.Chapters.IdealsSplitting
 import QNFBlueprint.Chapters.InfinitePlacesExamples
 import QNFBlueprint.Chapters.MathlibUpstream
 import QNFBlueprint.Chapters.Overview
 import QNFBlueprint.Chapters.QuadraticCore
+import QNFBlueprint.Chapters.References
 import QNFBlueprint.Chapters.ResearchScaffolds
 import QNFBlueprint.Chapters.RingOfIntegers
 import QNFBlueprint.Chapters.Units
@@ -52,6 +54,8 @@ Return to [numbertheory.cc](https://numbertheory.cc/).
 {include 0 QNFBlueprint.Chapters.Counterexamples}
 {include 0 QNFBlueprint.Chapters.ResearchScaffolds}
 {include 0 QNFBlueprint.Chapters.MathlibUpstream}
+{include 0 QNFBlueprint.Chapters.Glossary}
+{include 0 QNFBlueprint.Chapters.References}
 
 {blueprint_graph}
 {blueprint_summary}
